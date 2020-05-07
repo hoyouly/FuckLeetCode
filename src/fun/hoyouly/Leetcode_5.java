@@ -60,6 +60,7 @@ public class Leetcode_5 {
 
         /**
          * 优化双重遍历，把空间复杂度变为O(n)
+         *
          * @param s
          * @return
          */
@@ -127,7 +128,9 @@ public class Leetcode_5 {
          * @return
          */
         public String longestPalindrome3(String s) {
-
+            if (s == null || s.isEmpty()) {
+                return s;
+            }
             int start = 0;
             int end = 0;
             for (int i = 0; i < s.length(); i++) {
@@ -144,10 +147,7 @@ public class Leetcode_5 {
         }
 
         //中心点左右遍历
-        private int expandAroundCenter(String s, int left, int right) {
-            int l = left;
-            int r = right;
-
+        private int expandAroundCenter(String s, int l, int r) {
             while (l >= 0 && r < s.length() && s.charAt(r) == s.charAt(l)) {
                 l--;
                 r++;
